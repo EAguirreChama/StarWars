@@ -1,6 +1,12 @@
+import ListaNaves from "../../Componentes/ComponenteNaves/ListaNaves";
+
 const Naves = () => {
     return (
-        <h1>Aqui van a estar todas las naves con paginación</h1>
+        <div>
+            <h1>Aqui van a estar todas las naves con paginación</h1>
+            <ListaNaves/>
+        </div>
+
     )
 }
 
