@@ -13,7 +13,7 @@ const ListaPersonajes = () => {
         setPeople(peopleData.results);
         setTotalPages(Math.ceil(peopleData.count /10))
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error('Error en el Componente Personajes', error);
       }
     };
 
@@ -45,13 +45,14 @@ const ListaPersonajes = () => {
 
   return (
     <div>
-      {people.map((person) => (
-        <div key={person.name}>{person.name}</div>
-      ))}
+        <h1>Personajes</h1>
+        {people.map((person) => (
+            <div key={person.name}>{person.name}</div>
+        ))}
 
-      <button onClick={handlePrevPage} disabled={currentPage === 1}>Anterior</button>
-      {pageButtons}
-      <button onClick={handleNextPage}>Siguiente</button>
+        <button onClick={handlePrevPage} disabled={currentPage === 1}>Anterior</button>
+        {pageButtons}
+        <button onClick={handleNextPage}>Siguiente</button>
     </div>
   );
 };

@@ -1,11 +1,8 @@
 import axios from "axios";
 
-export const getNaves = async () => {
-    try {
-        const response = await axios.get("https://swapi.dev/api/starships/");
-        return response.data.results;
-    } catch (error) {
-        console.error("Error al obtener naves", error);
-        throw error;
-    }
+const BASE_URL = 'https://swapi.dev/api/';
+
+export const getNaves = async (page = 1) => {
+    const response = await axios.get(`${BASE_URL}starships/?page=${page}`);
+    return response.data;
 };

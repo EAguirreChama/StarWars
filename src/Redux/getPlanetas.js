@@ -1,11 +1,8 @@
 import axios from "axios";
 
-export const getPlanetas = async () => {
-    try {
-        const response = await axios.get("https://swapi.dev/api/planets/");
-        return response.data.results;
-    } catch (error) {
-        console.error("Error al obtener planetas", error);
-        throw error;
-    }
+const BASE_URL = 'https://swapi.dev/api/';
+
+export const getPlanetas = async (page = 1) => {
+    const response = await axios.get(`${BASE_URL}planets/?page=${page}`);
+    return response.data;
 };
