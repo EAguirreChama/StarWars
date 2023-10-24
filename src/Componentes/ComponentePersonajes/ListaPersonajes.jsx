@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getPersonajes } from '../../Redux/getPersonajes';
+import { getPersonajes } from '../../Redux/Personajes/getPersonajes';
+import { Link } from 'react-router-dom';
 
 const ListaPersonajes = () => {
   const [people, setPeople] = useState([]);
@@ -47,7 +48,9 @@ const ListaPersonajes = () => {
     <div>
         <h1>Personajes</h1>
         {people.map((person) => (
-            <div key={person.name}>{person.name}</div>
+          <div key={person.name}>
+            <Link to={`/personaje/${extractIdFromUrl(person.url)}`}>{person.name}</Link>
+          </div>
         ))}
 
         <button onClick={handlePrevPage} disabled={currentPage === 1}>Anterior</button>
@@ -58,3 +61,8 @@ const ListaPersonajes = () => {
 };
 
 export default ListaPersonajes;
+
+const extractIdFromUrl = (url) => {
+  const parts = url.split('/');
+  return parts[parts.length - 2];
+};
