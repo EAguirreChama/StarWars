@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
-import Landing from "./Vistas/Landing"
+import Landing from "./Vistas/Landing/Landing"
 
 function App() {
     return (
