@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-import { getNaveDetalles } from "../../Redux/getNaveDetalle"
+import { getNaveDetalles } from "../../Redux/Naves/getNaveDetalle"
 
 const DetallePlaneta = () => {
     const { id } = useParams()

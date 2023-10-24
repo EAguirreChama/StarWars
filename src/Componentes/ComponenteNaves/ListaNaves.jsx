@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getNaves } from "../../Redux/getNaves";
+import { getNaves } from "../../Redux/Naves/getNaves";
 import { Link } from "react-router-dom";
 
 const ListaNaves = () => {
