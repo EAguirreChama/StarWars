@@ -1,11 +1,8 @@
-import axios from "axios";
+import axios from 'axios';
 
-export const getPersonajes = async () => {
-    try {
-        const response = await axios.get("https://swapi.dev/api/people/");
-        return response.data.results;
-    } catch (error) {
-        console.error("Error al obtener personajes", error);
-        throw error;
-    }
+const BASE_URL = 'https://swapi.dev/api/';
+
+export const getPersonajes = async (page = 1) => {
+  const response = await axios.get(`${BASE_URL}people/?page=${page}`);
+  return response.data;
 };
