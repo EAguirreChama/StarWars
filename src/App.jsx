@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import { Landing, Personajes, Naves, Planetas, Home} from "./Vistas/index"
+import NavBar from "./Componentes/NavBar/NavBar";
 
 function App() {
     return (
         <Router>
             <div>
+                <NavBar/>
                 <Routes>
                     <Route exact path="/" element={<Landing/>}/>
 
