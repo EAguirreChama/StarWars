@@ -1,8 +1,9 @@
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { getPersonajes } from '../../Redux/Personajes/getPersonajes';
 import { Link } from 'react-router-dom';
 
-const ListaPersonajes = () => {
+const ListaPersonajes = ({ searchTerm }) => {
   const [people, setPeople] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -47,7 +48,9 @@ const ListaPersonajes = () => {
   return (
     <div>
         <h1>Personajes</h1>
-        {people.map((person) => (
+        {people
+        .filter((person) => person.name.toLowerCase().includes(searchTerm))
+        .map((person) => (
           <div key={person.name}>
             <Link to={`/personaje/${extractIdFromUrl(person.url)}`}>{person.name}</Link>
           </div>
@@ -58,6 +61,10 @@ const ListaPersonajes = () => {
         <button onClick={handleNextPage}>Siguiente</button>
     </div>
   );
+};
+
+ListaPersonajes.propTypes = {
+  searchTerm: PropTypes.string,  // Espera que searchTerm sea una cadena
 };
 
 export default ListaPersonajes;
