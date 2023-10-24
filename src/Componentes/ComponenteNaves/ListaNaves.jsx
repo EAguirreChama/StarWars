@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getNaves } from "../../Redux/getNaves";
+import { Link } from "react-router-dom";
 
 const ListaNaves = () => {
     const [naves, setNaves] = useState([])
@@ -46,7 +47,9 @@ const ListaNaves = () => {
         <div>
             <h1>Naves</h1>
             {naves.map((nave) => (
-                <div key={nave.name}>{nave.name}</div>
+              <div key={nave.name}>
+              <Link to={`/nave/${extractIdFromUrl(nave.url)}`}>{nave.name}</Link>
+              </div>
             ))}
 
             <button onClick={handlePrevPage} disabled={currentPage === 1}>Anterior</button>
@@ -57,3 +60,8 @@ const ListaNaves = () => {
 };
 
 export default ListaNaves
+
+const extractIdFromUrl = (url) => {
+  const parts = url.split('/');
+  return parts[parts.length - 2];
+};

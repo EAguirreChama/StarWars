@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getPlanetas } from "../../Redux/getPlanetas"
+import { getPlanetas } from "../../Redux/Planetas/getPlanetas"
 import { Link } from "react-router-dom";
 
 const ListaPlanetas = () => {
