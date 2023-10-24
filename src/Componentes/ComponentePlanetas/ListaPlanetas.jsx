@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getPlanetas } from "../../Redux/getPlanetas"
+import { Link } from "react-router-dom";
 
 const ListaPlanetas = () => {
     const [planetas, setPlanetas] = useState([])
@@ -46,7 +47,9 @@ const ListaPlanetas = () => {
         <div>
             <h1>Planetas</h1>
             {planetas.map((planeta) => (
-                <div key={planeta.name}>{planeta.name}</div>
+              <div key={planeta.name}>
+              <Link to={`/planeta/${extractIdFromUrl(planeta.url)}`}>{planeta.name}</Link>
+              </div>
             ))}
 
             <button onClick={handlePrevPage} disabled={currentPage === 1}>Anterior</button>
@@ -57,3 +60,8 @@ const ListaPlanetas = () => {
 }
 
 export default ListaPlanetas
+
+const extractIdFromUrl = (url) => {
+  const parts = url.split('/');
+  return parts[parts.length - 2];
+};

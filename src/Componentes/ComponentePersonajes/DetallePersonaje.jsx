@@ -15,7 +15,6 @@ const DetallePersonaje = () => {
                 console.error("Error al obtener detalles del Personaje", error);
             }
         }
-        
         fetchPersonajeDetalles();
     }, [id]);
 
