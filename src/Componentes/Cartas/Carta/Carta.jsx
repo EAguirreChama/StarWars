@@ -1,9 +1,11 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const Card = () => {
+const Card = ({name}) => {
     return (
         <div>
-            
+            <Link>
+                <p>{ name }</p>
+            </Link>
         </div>
     )
 }
