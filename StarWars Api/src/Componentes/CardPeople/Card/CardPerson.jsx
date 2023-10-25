@@ -1,5 +1,6 @@
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
+import style from "../../../Styles/Card.module.css"
 
 const Person = ({ person }) => {
     const extractIdFromUrl = (url) => {
@@ -9,13 +10,13 @@ const Person = ({ person }) => {
 
 
     return (
-        <div>
-            <h3>
-                <Link to={`/people/${extractIdFromUrl(person.url)}`}>
-                    {person.name}
-                </Link>
-            </h3>
-        </div>
+        <Link to={`/people/${extractIdFromUrl(person.url)}`} className={style.Link}>
+            <div className={style.card}>
+                <h3>{person.name}</h3>
+                <p>{person.gender}</p>
+                <p>{person.birth_year}</p>
+            </div>
+        </Link>
     )
 }
 

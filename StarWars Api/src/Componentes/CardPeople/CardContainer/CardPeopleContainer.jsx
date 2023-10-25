@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { getPeople } from "../../../redux/People/getPeople";
+import style from "./CardPeopleContainer.module.css"
 
 import Person from "../Card/CardPerson";
-import Loader from "../../Loader"
 
 const People = () => {
     const [page, setPage] = useState(1)
@@ -19,14 +19,22 @@ const People = () => {
     ) 
 
     return (
-        <>
-            <h2>People</h2>
+        <div className={style.container}>
+            <h2 className={style.title}>Star Wars - People</h2>
             {status === "loading" ? (
-                <Loader/>
+                <h1>Cargando...</h1>
             ) : status === "error" ? (
                 <div>Error Data</div>
             ) : status === "success" ? (
                 <div>
+                    <div className={style.CardContainer}>
+                        {data.results.map((person) => (
+                            <Person 
+                                key={person.name} 
+                                person={person}
+                            />
+                        ))}
+                    </div>
                     <div>
                         <button 
                             onClick={() => setPage((old) => Math.min(old - 1, old))}
@@ -42,13 +50,10 @@ const People = () => {
                             Next
                         </button>
                     </div>
-                    {data.results.map((person) => (
-                        <Person key={person.name} person={person}/>
-                    ))}
                 </div>
             ) : null}
 
-        </>
+        </div>
     )
 
 }
