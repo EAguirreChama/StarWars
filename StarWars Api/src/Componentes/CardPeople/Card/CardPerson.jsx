@@ -13,8 +13,8 @@ const Person = ({ person }) => {
         <Link to={`/people/${extractIdFromUrl(person.url)}`} className={style.Link}>
             <div className={style.card}>
                 <h3>{person.name}</h3>
-                <p>{person.gender}</p>
-                <p>{person.birth_year}</p>
+                <p>Gender: {person.gender}</p>
+                <p>Birthday: {person.birth_year}</p>
             </div>
         </Link>
     )

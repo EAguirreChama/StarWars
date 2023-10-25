@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { getPlanets } from "../../../redux/Planets/getPlanets"
+import style from "../../../Styles/CardContainer.module.css"
 
 import Planet from "../Card/CardPlanet";
-import Loader from "../../Loader"
 
 const Planets = () => {
     const [page, setPage] = useState(1)
@@ -19,38 +19,36 @@ const Planets = () => {
     ) 
 
     return (
-        <>
-            <h2>Planets</h2>
+        <div className={style.container}>
+            <h2 className={style.title}>Satr Wars - Planets</h2>
             {status === "loading" ? (
-                <Loader/>
+                <h1>Cargando...</h1>
             ) : status === "error" ? (
                 <div>Error Data</div>
             ) : status === "success" ? (
                 <div>
-                    <div>
-                        <button 
-                            onClick={() => setPage((old) => Math.min(old - 1, old))}
-                            disabled={page === 1}
-                        >
-                            Previous
-                        </button>
-                        <span>{page}</span>
-                        <button 
-                            onClick={() => {if(!isPreviousData) {setPage((old) => old +1)}}}
-                            disabled = {!data.next}
-                        >
-                            Next
-                        </button>
+                    <div className={style.CardContainer}>
+                        {data.results.map((planet) => (
+                            <Planet key={planet.name} planet={planet}/>
+                        ))}
                     </div>
-                    {data.results.map((planet) => (
-                        <Planet key={planet.name} planet={planet}/>
-                    ))}
+                    <button 
+                        onClick={() => setPage((old) => Math.min(old - 1, old))}
+                        disabled={page === 1}
+                    >
+                        Previous
+                    </button>
+                    <span>{page}</span>
+                    <button 
+                        onClick={() => {if(!isPreviousData) {setPage((old) => old +1)}}}
+                        disabled = {!data.next}
+                    >
+                        Next
+                    </button>
                 </div>
             ) : null}
-
-        </>
+        </div>
     )
-
 }
 
 export default Planets

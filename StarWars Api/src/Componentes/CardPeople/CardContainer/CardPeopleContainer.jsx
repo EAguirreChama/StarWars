@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useQuery } from "react-query";
 import { getPeople } from "../../../redux/People/getPeople";
-import style from "./CardPeopleContainer.module.css"
+import style from "../../../Styles/CardContainer.module.css"
 
 import Person from "../Card/CardPerson";
 
