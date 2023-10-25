@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    background-color: #03071E;
+
+}
+.NavBarStyle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.NavBarStyle a {
+    margin: 0 10px;
+    background-color: #8A0C18;
+    border: 3px solid #ccc;
+    border-radius: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 22px;
+    padding-right: 22px;
+    color: #ccc;
+    font-size: 1.8em;
+    cursor: pointer;
+}
+    
+.NavBarStyle a:hover {
+    color: #03071E;
+    background-color: #F48C06;
+}
+
+h1 {
+    font-size: 2em;
+    color: #ccc;
+    margin-right: 400px;
+}
