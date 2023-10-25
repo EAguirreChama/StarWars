@@ -28,8 +28,9 @@ body {
     background-color: #F48C06;
 }
 
-h1 {
+.title {
     font-size: 2.3rem;
     color: #ccc;
     margin-right: 400px;
+    margin-top: 20px;
 }

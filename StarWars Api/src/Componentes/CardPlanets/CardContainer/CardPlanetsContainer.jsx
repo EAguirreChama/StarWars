@@ -21,7 +21,6 @@ const Planets = () => {
 
     return (
         <div className={style.container}>
-            <h2 className={style.title}>Satr Wars - Planets</h2>
             {status === "loading" ? (
                 <div className={styleP.loading}>
                     <p>Loading...</p>

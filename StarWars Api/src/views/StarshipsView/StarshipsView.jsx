@@ -3,7 +3,6 @@ import Starships from "../../Componentes/CardStarships/CardContainer/CardStarshi
 const StarshipsView = () => {
     return (
         <div>
-            <h1>Aqui es Starships</h1>
             <Starships/>
         </div>
     )

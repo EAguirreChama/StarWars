@@ -3,7 +3,6 @@ import Planets from "../../Componentes/CardPlanets/CardContainer/CardPlanetsCont
 const PlanetsView = () => {
     return (
         <div>
-            <h1>Aqui es Planets</h1>
             <Planets/>
         </div>
     )

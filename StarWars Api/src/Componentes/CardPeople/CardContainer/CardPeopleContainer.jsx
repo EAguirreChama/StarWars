@@ -21,7 +21,6 @@ const People = () => {
 
     return (
         <div className={style.container}>
-            <h2 className={style.title}>Star Wars - People</h2>
             {status === "loading" ? (
                 <div className={styleP.loading}>
                     <p>Loading...</p>

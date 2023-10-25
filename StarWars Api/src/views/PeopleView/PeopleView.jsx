@@ -3,7 +3,6 @@ import People from "../../Componentes/CardPeople/CardContainer/CardPeopleContain
 const PeopleView = () => {
     return (
         <div>
-            <h1>Aqui es People</h1>
             <People/>
         </div>
     )
