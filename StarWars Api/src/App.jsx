@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import { LandingView, HomeView, PeopleView, PlanetsView, StarshipsView} from "./views/index"
-import { PersonDetail } from "./views/indexDetail"
+import { PersonDetail, PlanetDetail } from "./views/indexDetail"
 import NavBar from "./Componentes/NavBar/NavBar"
 
 function App() {
@@ -14,10 +14,12 @@ function App() {
           <Route exact path="/home"       element={<HomeView/>}/>
 
           {/* Rutas para People */}
-          <Route exact path="/people"     element={<PeopleView/>}/>
+          <Route exact path="/people"      element={<PeopleView/>}/>
           <Route exact path="/people/:id"  element={<PersonDetail/>}/>
 
-          <Route exact path="/planets"    element={<PlanetsView/>}/>
+          {/* Rutas para Planets */}
+          <Route exact path="/planets"     element={<PlanetsView/>}/>
+          <Route exact path="/planets/:id" element={<PlanetDetail/>}/>
 
           <Route exact path="/starships"  element={<StarshipsView/>}/>
 

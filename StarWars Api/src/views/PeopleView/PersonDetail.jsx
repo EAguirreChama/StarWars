@@ -24,7 +24,10 @@ const PersonDetail = () => {
     }
 
     return (
-        <h1>{personDetail.name}</h1>
+        <div>
+            <h1>Aqui Detalle de Persona</h1>
+            <h2>{personDetail.name}</h2>
+        </div>
     )
 }
 
