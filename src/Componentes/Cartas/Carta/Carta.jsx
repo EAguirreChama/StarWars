@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
 
 const Card = ({name}) => {
@@ -9,5 +10,9 @@ const Card = ({name}) => {
         </div>
     )
 }
+
+Card.propTypes = {
+    name: PropTypes.string.isRequired,
+};
 
 export default Card

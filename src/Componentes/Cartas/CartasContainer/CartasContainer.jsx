@@ -30,6 +30,7 @@ const CartasContainer = () => {
                 {
                     actualPersonajes.map(personaje => {
                         return <Card
+                            key={personaje.id}
                             name={personaje.id}
                         />
                     })

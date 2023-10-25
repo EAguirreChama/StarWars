@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import style from "./Paginacion.module.css"
 
 const Pagination = ({ personajesPorPag , totalPersonajes , clickPag , paginaActual }) => {
@@ -39,6 +40,13 @@ const Pagination = ({ personajesPorPag , totalPersonajes , clickPag , paginaActu
               </button>
             </div>
     );
+};
+
+Pagination.propTypes = {
+  personajesPorPag: PropTypes.number.isRequired,
+  totalPersonajes: PropTypes.number.isRequired,
+  clickPag: PropTypes.func.isRequired,
+  paginaActual: PropTypes.number.isRequired,
 };
 
 export default Pagination;
