@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 import { getPeople } from "../../../redux/People/getPeople";
 import style from "../../../Styles/CardContainer.module.css"
+import styleP from "../../../Styles/Paginacion.module.css"
 
 import Person from "../Card/CardPerson";
 
@@ -22,40 +23,37 @@ const People = () => {
         <div className={style.container}>
             <h2 className={style.title}>Star Wars - People</h2>
             {status === "loading" ? (
-                <h1>Cargando...</h1>
+                <div className={styleP.loading}>
+                    <p>Loading...</p>
+                </div>
             ) : status === "error" ? (
                 <div>Error Data</div>
             ) : status === "success" ? (
                 <div>
                     <div className={style.CardContainer}>
                         {data.results.map((person) => (
-                            <Person 
-                                key={person.name} 
-                                person={person}
-                            />
+                            <Person key={person.name} person={person}/>
                         ))}
                     </div>
-                    <div>
+                    <div className={styleP.pagination}>
                         <button 
                             onClick={() => setPage((old) => Math.min(old - 1, old))}
                             disabled={page === 1}
                         >
-                            Previous
+                            Prev Page
                         </button>
                         <span>{page}</span>
                         <button 
                             onClick={() => {if(!isPreviousData) {setPage((old) => old +1)}}}
                             disabled = {!data.next}
                         >
-                            Next
+                            Next Page
                         </button>
                     </div>
                 </div>
             ) : null}
-
         </div>
     )
-
 }
 
 export default People

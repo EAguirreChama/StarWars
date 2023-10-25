@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery } from "react-query";
 import { getStarships } from "../../../redux/Starships/getStarships"
 import style from "../../../Styles/CardContainer.module.css"
+import styleP from "../../../Styles/Paginacion.module.css"
 
 import Starship from "../Card/CardStarship";
 
@@ -21,8 +22,10 @@ const Starships = () => {
     return (
         <div className={style.container}>
             <h2 className={style.title}>Star Wars - Starships</h2>
-            {status === "loading" ? (
-                <h1>Cargando...</h1>
+            { status === "loading" ? (
+                <div className={styleP.loading}>
+                    <p>Loading...</p>
+                </div>
             ) : status === "error" ? (
                 <div>Error Data</div>
             ) : status === "success" ? (
@@ -32,19 +35,21 @@ const Starships = () => {
                             <Starship key={starship.name} starship={starship}/>
                         ))}
                     </div>
-                    <button 
-                        onClick={() => setPage((old) => Math.min(old - 1, old))}
-                        disabled={page === 1}
-                    >
-                        Previous
-                    </button>
-                    <span>{page}</span>
-                    <button 
-                        onClick={() => {if(!isPreviousData) {setPage((old) => old +1)}}}
-                        disabled = {!data.next}
-                    >
-                        Next
-                    </button>
+                    <div className={styleP.pagination}>
+                        <button 
+                            onClick={() => setPage((old) => Math.min(old - 1, old))}
+                            disabled={page === 1}
+                        >
+                            Prev Page
+                        </button>
+                        <span>{page}</span>
+                        <button 
+                            onClick={() => {if(!isPreviousData) {setPage((old) => old +1)}}}
+                            disabled = {!data.next}
+                        >
+                            Next Page
+                        </button>
+                    </div>
                 </div>
             ) : null}
         </div>
