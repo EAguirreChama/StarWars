@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 import { LandingView, HomeView, PeopleView, PlanetsView, StarshipsView} from "./views/index"
-import { PersonDetail, PlanetDetail } from "./views/indexDetail"
+import { PersonDetail, PlanetDetail, StarshipDetail } from "./views/indexDetail"
 import NavBar from "./Componentes/NavBar/NavBar"
 
 function App() {
@@ -21,7 +21,9 @@ function App() {
           <Route exact path="/planets"     element={<PlanetsView/>}/>
           <Route exact path="/planets/:id" element={<PlanetDetail/>}/>
 
+          {/* Rutas para Naves */}
           <Route exact path="/starships"  element={<StarshipsView/>}/>
+          <Route exact path="/starships/:id" element={<StarshipDetail/>}/>
 
           <Route path="*" element={<LandingView/>}/>
         </Routes>
