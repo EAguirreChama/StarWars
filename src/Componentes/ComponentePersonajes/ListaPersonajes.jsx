@@ -49,7 +49,7 @@ const ListaPersonajes = ({ searchTerm }) => {
     <div>
         <h1>Personajes</h1>
         {people
-        .filter((person) => person.name.toLowerCase().includes(searchTerm))
+        .filter((personaje) => personaje.name.toLowerCase().includes(searchTerm))
         .map((person) => (
           <div key={person.name}>
             <Link to={`/personaje/${extractIdFromUrl(person.url)}`}>{person.name}</Link>

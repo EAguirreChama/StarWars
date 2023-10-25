@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import PropTypes from 'prop-types';
 import { getPlanetas } from "../../Redux/Planetas/getPlanetas"
 import { Link } from "react-router-dom";
 
-const ListaPlanetas = () => {
+const ListaPlanetas = ({ searchTerm }) => {
     const [planetas, setPlanetas] = useState([])
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(1);
@@ -46,7 +47,9 @@ const ListaPlanetas = () => {
     return (
         <div>
             <h1>Planetas</h1>
-            {planetas.map((planeta) => (
+            {planetas
+            .filter((planeta) => planeta.name.toLowerCase().includes(searchTerm))
+            .map((planeta) => (
               <div key={planeta.name}>
               <Link to={`/planeta/${extractIdFromUrl(planeta.url)}`}>{planeta.name}</Link>
               </div>
@@ -58,6 +61,10 @@ const ListaPlanetas = () => {
         </div>
     )
 }
+
+ListaPlanetas.propTypes = {
+  searchTerm: PropTypes.string,  // Espera que searchTerm sea una cadena
+};
 
 export default ListaPlanetas
 
