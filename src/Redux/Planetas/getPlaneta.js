@@ -10,3 +10,9 @@ export const getPlanetas = () => {
          dispatch ({ type: GET_PLANETAS , payload: planetas})
     }
 }
+
+// import { GET_PERSONAJE_ID } from "./Personajes/getPersonajeId";
+// import { GET_PLANETAS } from "./Planetas/getPlaneta";
+// import { GET_PLANETA_ID } from "./Planetas/getPlanetasId";
+// import { GET_NAVES } from "./Naves/getNaves";
+// import { GET_NAVES_ID } from "./Naves/getNavesId";
