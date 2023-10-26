@@ -1,0 +1,120 @@
+.container {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+body {
+    background-color: rgb(196, 191, 191);
+}
+
+.home button {
+    background-color: #8A0C18;
+    border: 3px solid black;
+    border-radius: 20px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 22px;
+    padding-right: 22px;
+    color: #ccc;
+    font-size: 1.8em;
+    cursor: pointer;
+    text-decoration: none;
+    width: 300px;
+    margin-top: 10px;
+}
+
+.containerThreeT,
+.containerTwoT {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 70px;
+}
+
+.containerThreeT img {
+    width: 150px;
+    height: 120px;
+    margin-top: 30px;
+}
+
+.containerThreeT>div {
+    background-color: white;
+    width: 420px;
+    height: 150px;
+    display: flex;
+    border-radius: 20px;
+}
+
+.cardChild {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.cardChild h1 {
+    margin: 0;
+    color: black;
+}
+
+.cardChild p {
+    color: rgb(224, 113, 9);
+    margin: 0;
+    font-size: 100px;
+}
+
+.info {
+    background-color: white;
+    width: 300px;
+    height: 145px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+    border: 3px solid #8A0C18;
+}
+
+.info h1 {
+    margin-top: 0px;
+    align-self: center;
+    color: black;
+}
+
+.info a {
+    text-decoration: none;
+    color: #8A0C18;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.films {
+    background-color: white;
+    width: 1340px;
+    display: flex;
+    border-radius: 20px;
+    border: 3px solid #8A0C18
+}
+
+.films ul {
+    list-style: none;
+}
+
+.films li {
+    background-color: rgb(196, 191, 191);
+    border: 1px solid #ddd;
+    width: 120%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.films h1 {
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+p {
+    color: black;
+}

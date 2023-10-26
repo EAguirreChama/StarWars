@@ -1,17 +1,14 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
-import { PersonDetail, PlanetDetail, StarshipDetail } from "./views/indexDetail"
-import GeneralView from "./views/GeneralContainer"
-import LandingView from "./views/LandingView/LandingView"
-import DashBoardView from "./views/DashBoardView/DashBoardView"
+import { PersonDetail, PlanetDetail, StarshipDetail, GeneralView, Landing, Dashboard } from "./views/indexDetail"
 
 function App() {
   return (
     <Router>
       <div>
         <Routes>
-          <Route exact path="/" element={<LandingView />} />
+          <Route exact path="/" element={<Landing/>} />
 
-          <Route exact path="/dashboard" element={<DashBoardView />} />
+          <Route exact path="/dashboard" element={<Dashboard/>} />
           <Route exact path="/home" element={<GeneralView />} />
 
           {/* Rutas para People */}
@@ -23,7 +20,7 @@ function App() {
           {/* Rutas para Naves */}
           <Route exact path="/starships/:id" element={<StarshipDetail />} />
 
-          <Route path="*" element={<LandingView />} />
+          <Route path="*" element={<Landing/>} />
         </Routes>
       </div>
     </Router>

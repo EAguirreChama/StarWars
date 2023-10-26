@@ -28,7 +28,6 @@ const NavBar = ({ activeTab, setTab }) => {
         )}
         {!isInHome && <Link to="/home" className={styles.button}>Home</Link>}
       </div>
-      <h1 className={styles.title}>Star Wars Api</h1>
       <div>
         <Link to="/" className={styles.button}>
           Salir

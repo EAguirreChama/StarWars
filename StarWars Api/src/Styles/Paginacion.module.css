@@ -20,11 +20,11 @@
 }
 
 .pagination button:disabled {
-    background-color: #F48C06; /* Color de fondo gris para botones deshabilitados */
+    background-color: #F48C06;
     cursor: not-allowed;
 }
 
 .pagination span {
-    color: white;
+    color: black;
     font-size: 1.8em;
 }
