@@ -1,8 +1,11 @@
-# React + Vite
+# Star Wars Api
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Clonar el Repositorio
+git clone https://github.com/EAguirreChama/StarWars.git
 
-Currently, two official plugins are available:
+## Instalar dependencias
+cd nombre-de-tu-proyecto
+npm install
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Inicar App
+npm run dev
