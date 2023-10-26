@@ -3,7 +3,8 @@ import { useQuery } from "react-query";
 import { getData } from "../Info/getData";
 import Info from "../Componentes/InfoContainer";
 import SearchBar from "../Componentes/SearchBar/SearchBar";
-import styles from "../Componentes/NavBar/NavBar.module.css"
+import styles from "../Styles/NavBar.module.css"
+import { Link } from "react-router-dom";
 
 const GeneralView = () => {
   const [url, setUrl] = useState("https://swapi.dev/api/people/")
@@ -12,6 +13,7 @@ const GeneralView = () => {
   const [next, setNext] = useState(false)
   const [tab, setTab] = useState("people")
   const [loading, setLoading] = useState(true)
+  const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
     setLoading(true)
@@ -40,17 +42,44 @@ const GeneralView = () => {
     setPage(1)
   }, [tab])
 
+  const resetSearch = () => {
+    setSearchTerm(""); // Vaciar el término de búsqueda
+  };
+
   return (
     <div>
-      <div className={styles.NavBarStyle}>
-        <div>
-          <a onClick={() => setTab("planets")} className={styles.Linke}>Planets</a>
+      <div>
+        <div className={styles.NavBarStyle}>
+          <div>
+            {/* Planets */}
+            {tab !== "planets" && (
+              <a onClick={() => setTab("planets")} className={styles.button}>Planets</a>
+            )}
+
+            {/* People */}
+            {tab !== "people" && (
+              <a onClick={() => setTab("people")} className={styles.button}>People</a>
+            )}
+
+            {/* Starships */}
+            {tab !== "starships" && (
+              <a onClick={() => setTab("starships")} className={styles.button}>Starships</a>
+            )}
+          </div>
+          <div>
+            <Link to="/" className={styles.button}>Salir</Link>
+            <Link to="/dashboard" className={styles.button}>Dashboard</Link>
+          </div>
         </div>
       </div>
-      {status === "success" && <SearchBar tab={tab} setUrl={setUrl} setPage={setPage} />}
-      {loading === true ?
-        <p>Cargando...</p>
-        : <Info people={info} setPage={setPage} page={page} status={status} next={next} setUrl={setUrl} tab={tab} />}
+      {loading === true ? (
+        <p className={styles.loading}>Cargando...</p>
+      ) : (
+        <div>
+          <SearchBar tab={tab} setUrl={setUrl} setPage={setPage} searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
+          <Info info={info} setPage={setPage} page={page} status={status} next={next} setUrl={setUrl} tab={tab} resetSearch={resetSearch}/>
+        </div>
+      )}
     </div>
   )
 }

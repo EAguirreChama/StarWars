@@ -9,7 +9,7 @@ const PersonDetail = () => {
   useEffect(() => {
     const fetchPersonDetail = async () => {
       try {
-        const details = await getInfoId(id);
+        const details = await getInfoId(id, "people");
 
         // Obtener detalles de las naves estelares
         const starshipsDetails = await Promise.all(
@@ -18,14 +18,20 @@ const PersonDetail = () => {
 
         // Obtener detalles de las películas
         const filmsDetails = await Promise.all(
-          details.films.map((film) => getInfoId(getIdFromUrl(film),"films"))
+          details.films.map((film) => getInfoId(getIdFromUrl(film), "films"))
         );
+
+        // Obtener detalles de los planetas
+        const planetDetails = await getInfoId(getIdFromUrl(details.homeworld), "planets")
+        const planetName = planetDetails.name;
 
         setPersonDetail({
           ...details,
           starships: starshipsDetails,
           films: filmsDetails,
+          planet: planetName
         });
+        console.log(setPersonDetail.planets);
       } catch (error) {
         console.error("Error al obtener detalles de la persona:", error);
       }
@@ -46,7 +52,9 @@ const PersonDetail = () => {
   return (
     <div>
       <h1>Detalle de {personDetail.name}</h1>
-      <p>Homeworld: {personDetail.homeworld}</p>
+      <p>
+        Homeworld: {personDetail.planet}
+      </p>
       <p>
         Films:{" "}
         {personDetail.films.map((film) => (
