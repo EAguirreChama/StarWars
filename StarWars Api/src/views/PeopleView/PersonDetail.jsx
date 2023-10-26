@@ -31,7 +31,6 @@ const PersonDetail = () => {
           films: filmsDetails,
           planet: planetName
         });
-        console.log(setPersonDetail.planets);
       } catch (error) {
         console.error("Error al obtener detalles de la persona:", error);
       }
