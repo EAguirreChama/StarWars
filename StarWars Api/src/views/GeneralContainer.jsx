@@ -43,7 +43,7 @@ const GeneralView = () => {
   }, [tab])
 
   const resetSearch = () => {
-    setSearchTerm(""); // Vaciar el término de búsqueda
+    setSearchTerm("");
   };
 
   return (

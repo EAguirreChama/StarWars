@@ -14,7 +14,7 @@ const Info = ({ info, setPage, page, next, setUrl, tab, resetSearch }) => {
                     {info?.map((dato) =>
                         tab === "people" ? (
                             <Person key={dato.name} person={dato} />
-                        ) : tab === "planets" ? ( // Asumí que el tab para planetas es "planets"
+                        ) : tab === "planets" ? ( 
                             <Planet key={dato.name} planet={dato} />
                         ) : (
                             <Starship key={dato.name} starship={dato} />

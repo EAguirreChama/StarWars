@@ -120,7 +120,6 @@ p {
     color: black;
 }
 
-/* Media Query para pantallas más pequeñas, como celulares */
 @media only screen and (max-width: 768px) {
     .container {
         margin-left: 10px;
@@ -139,7 +138,7 @@ p {
     }
 
     .containerThreeT img {
-        display: none; /* Ocultar las imágenes en pantallas pequeñas */
+        display: none; 
     }
 
     .containerThreeT>div {
