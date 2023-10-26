@@ -5,17 +5,14 @@
   padding: 10px;
   background: #1b1b1b;
   margin: 16px 0;
-  width: 100%;
-  max-width: 1000px;
+  width: 1000px;
   align-items: center;
 }
-
 .card p {
   margin: 6px 0;
   color: #999;
   font-size: 1.4rem;
 }
-
 .card h3 {
   margin: 10px 0;
   color: #ffff57;
@@ -24,10 +21,4 @@
 
 .Link {
   text-decoration: none;
-}
-
-@media screen and (min-width: 768px) {
-  .card {
-      width: 50%;
-  }
 }
