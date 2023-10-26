@@ -28,6 +28,7 @@ const NavBar = ({ activeTab, setTab }) => {
         )}
         {!isInHome && renderLink("/", "Home")}
       </div>
+      <h1 className={styles.title}>Star Wars Api</h1>
       <div>
         <Link to="/" className={styles.button}>
           Salir

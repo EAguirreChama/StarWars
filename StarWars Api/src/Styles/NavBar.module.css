@@ -29,17 +29,17 @@ body {
 }
 
 .title {
-    font-size: 2.3rem;
+    font-size: 2rem;
     color: #ccc;
-    margin-right: 400px;
-    margin-top: 20px;
+    margin-right: 100px;
 }
 
 
 .loading {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 300px;
     font-size: 3rem;
+    margin-right: 80px;
     animation: colorChange 5.5s infinite;
 }
 
