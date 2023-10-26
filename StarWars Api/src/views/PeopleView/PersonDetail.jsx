@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getInfoId } from "../../Info/getInfoId";
 import NavBar from "../../Componentes/NavBar";
+import PersonStyle from "../../Styles/Detail.module.css"
+import LoadingStyle from "../../Styles/NavBar.module.css"
 
 const PersonDetail = () => {
   const { id } = useParams();
@@ -46,32 +48,36 @@ const PersonDetail = () => {
   };
 
   if (!personDetail) {
-    return <div>Cargando ...</div>;
+    return <div className={LoadingStyle.loading}>Loading...</div>;
   }
 
   return (
     <div>
       <NavBar />
-      <h1>Detail of the Character: {personDetail.name}</h1>
-      <p>
-        Homeworld: {personDetail.planet}
-      </p>
-      <p>
-        Films:{" "}
-        {personDetail.films.map((film) => (
-          <span key={film.title}>{film.title}, </span>
-        ))}
-      </p>
-      {personDetail.starships.length > 0 ? (
-        <p>
-          Starships:{" "}
-          {personDetail.starships.map((starship) => (
-            <span key={starship.name}>{starship.name}, </span>
-          ))}
-        </p>
-      ) : (
-        <p>No tiene starships</p>
-      )}
+      <div className={PersonStyle.contenedor}>
+        <div className={PersonStyle.card}>
+          <h1>Detail of the Character: {personDetail.name}</h1>
+          <p>Homeworld: {personDetail.planet}</p>
+
+          <p>Films</p>
+          <div className={PersonStyle.Grid}>
+            {personDetail.films.map((film) => (
+              <div key={film.title} className={PersonStyle.Card}>{film.title}</div>
+            ))}
+          </div>
+
+          {personDetail.starships.length > 0 ? (
+            <p>
+              Starships:{" "}
+              {personDetail.starships.map((starship) => (
+                <span key={starship.name}>{starship.name} </span>
+              ))}
+            </p>
+          ) : (
+            <p>Does not have starships</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 };

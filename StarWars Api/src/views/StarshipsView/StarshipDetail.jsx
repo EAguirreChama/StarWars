@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getInfoId } from "../../Info/getInfoId";
 import NavBar from "../../Componentes/NavBar";
+import LoadingStyle from "../../Styles/NavBar.module.css"
 
 const StarshipDetail = () => {
     const { id } = useParams()
@@ -21,7 +22,7 @@ const StarshipDetail = () => {
     }, [id])
 
     if (!starshipDetail) {
-        return <div>Cargando ...</div>;
+        return <div className={LoadingStyle.loading}>Loading...</div>;
     }
 
     return (
