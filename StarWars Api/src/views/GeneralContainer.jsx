@@ -4,7 +4,7 @@ import { getData } from "../Info/getData";
 import Info from "../Componentes/InfoContainer";
 import SearchBar from "../Componentes/SearchBar/SearchBar";
 import styles from "../Styles/NavBar.module.css"
-import { Link } from "react-router-dom";
+import NavBar from "../Componentes/NavBar";
 
 const GeneralView = () => {
   const [url, setUrl] = useState("https://swapi.dev/api/people/")
@@ -48,30 +48,7 @@ const GeneralView = () => {
 
   return (
     <div>
-      <div>
-        <div className={styles.NavBarStyle}>
-          <div>
-            {/* Planets */}
-            {tab !== "planets" && (
-              <a onClick={() => setTab("planets")} className={styles.button}>Planets</a>
-            )}
-
-            {/* People */}
-            {tab !== "people" && (
-              <a onClick={() => setTab("people")} className={styles.button}>People</a>
-            )}
-
-            {/* Starships */}
-            {tab !== "starships" && (
-              <a onClick={() => setTab("starships")} className={styles.button}>Starships</a>
-            )}
-          </div>
-          <div>
-            <Link to="/" className={styles.button}>Salir</Link>
-            <Link to="/dashboard" className={styles.button}>Dashboard</Link>
-          </div>
-        </div>
-      </div>
+      <NavBar activeTab={tab} setTab={setTab}/>
       {loading === true ? (
         <p className={styles.loading}>Cargando...</p>
       ) : (

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getInfoId } from "../../Info/getInfoId";
+import NavBar from "../../Componentes/NavBar";
 
 const PersonDetail = () => {
   const { id } = useParams();
@@ -22,14 +23,14 @@ const PersonDetail = () => {
         );
 
         // Obtener detalles de los planetas
-        const planetDetails = await getInfoId(getIdFromUrl(details.homeworld), "planets")
+        const planetDetails = await getInfoId(getIdFromUrl(details.homeworld), "planets");
         const planetName = planetDetails.name;
 
         setPersonDetail({
           ...details,
           starships: starshipsDetails,
           films: filmsDetails,
-          planet: planetName
+          planet: planetName,
         });
       } catch (error) {
         console.error("Error al obtener detalles de la persona:", error);
@@ -50,7 +51,8 @@ const PersonDetail = () => {
 
   return (
     <div>
-      <h1>Detalle de {personDetail.name}</h1>
+      <NavBar />
+      <h1>Detail of the Character: {personDetail.name}</h1>
       <p>
         Homeworld: {personDetail.planet}
       </p>
@@ -60,12 +62,16 @@ const PersonDetail = () => {
           <span key={film.title}>{film.title}, </span>
         ))}
       </p>
-      <p>
-        Starships:{" "}
-        {personDetail.starships.map((starship) => (
-          <span key={starship.name}>{starship.name}, </span>
-        ))}
-      </p>
+      {personDetail.starships.length > 0 ? (
+        <p>
+          Starships:{" "}
+          {personDetail.starships.map((starship) => (
+            <span key={starship.name}>{starship.name}, </span>
+          ))}
+        </p>
+      ) : (
+        <p>No tiene starships</p>
+      )}
     </div>
   );
 };

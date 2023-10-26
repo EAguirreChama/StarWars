@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getInfoId } from "../../Info/getInfoId";
+import NavBar from "../../Componentes/NavBar";
 
 const StarshipDetail = () => {
     const { id } = useParams()
@@ -9,7 +10,7 @@ const StarshipDetail = () => {
     useEffect(() => {
         const fetchPersonDetail = async () => {
             try {
-                const details = await getInfoId(id);
+                const details = await getInfoId(id, "starships");
                 setStarshipDetail(details);
             } catch (error) {
                 console.error("Error al obtener detalles de la Nave:", error);
@@ -25,8 +26,11 @@ const StarshipDetail = () => {
 
     return (
         <div>
-            <h1>Aqui Detalle de la Nave</h1>
-            <h2>{starshipDetail.name}</h2>
+            <NavBar/>
+            <h1>Detalle de la Nave {starshipDetail.name}</h1>
+            <h2>Manufacturer: {starshipDetail.manufacturer}</h2>
+            <h2>Consumables: {starshipDetail.consumables}</h2>
+            <h2>Starship Class: {starshipDetail.starship_class}</h2>
         </div>
     )
 }

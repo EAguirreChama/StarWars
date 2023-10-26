@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getInfoId } from "../../Info/getInfoId";
+import NavBar from "../../Componentes/NavBar";
 
 const PlanetDetail = () => {
     const { id } = useParams()
@@ -15,8 +16,6 @@ const PlanetDetail = () => {
                 const residentsDetails = await Promise.all(
                     details.residents.map((resident) => getInfoId(getIdFromUrl(resident), "people"))
                 );
-
-
 
                 setPlanetDetail({
                     ...details,
@@ -41,7 +40,8 @@ const PlanetDetail = () => {
 
     return (
         <div>
-            <h1>Detalle de {planetDetail.name}</h1>
+            <NavBar/>
+            <h1>Detalle del Planeta {planetDetail.name}</h1>
             <p>Terrain: {planetDetail.terrain}</p>
             <p>Climate: {planetDetail.climate}</p>
             <p>Diameter: {planetDetail.diameter}</p>
