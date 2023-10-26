@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getPlanetId } from "../../redux/Planets/getPlanetsId"
+import { getInfoId } from "../../Info/getInfoId";
+
 
 const PlanetDetail = () => {
     const { id } = useParams()
@@ -9,7 +10,7 @@ const PlanetDetail = () => {
     useEffect(() => {
         const fetchPersonDetail = async () => {
             try {
-                const details = await getPlanetId(id);
+                const details = await getInfoId(id);
                 setPlanetDetail(details);
             } catch (error) {
                 console.error("Error al obtener detalles del planeta:", error);

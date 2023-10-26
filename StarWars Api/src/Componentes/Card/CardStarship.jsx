@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
-import style from "../../../Styles/Card.module.css"
+import style from "../../Styles/Card.module.css"
 
 const Starship = ({ starship }) => {
     const extractIdFromUrl = (url) => {

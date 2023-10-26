@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getStarshipId } from "../../redux/Starships/getStarshipId"
+import { getInfoId } from "../../Info/getInfoId";
 
 const StarshipDetail = () => {
     const { id } = useParams()
@@ -9,7 +9,7 @@ const StarshipDetail = () => {
     useEffect(() => {
         const fetchPersonDetail = async () => {
             try {
-                const details = await getStarshipId(id);
+                const details = await getInfoId(id);
                 setStarshipDetail(details);
             } catch (error) {
                 console.error("Error al obtener detalles de la Nave:", error);
