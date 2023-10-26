@@ -44,9 +44,3 @@ p {
     border-radius: 10px;
     border: 3px solid #ccc;
 }
-
-@media screen and (min-width: 768px) {
-    .Grid {
-        grid-template-columns: repeat(3, 1fr); 
-    }
-}

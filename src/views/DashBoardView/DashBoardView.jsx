@@ -17,9 +17,7 @@ const Dashboard = () => {
         }
     );
 
-    useEffect(() => {
-        // Aquí puedes realizar otras acciones cuando cambie la información de las películas
-    }, [moviesData]);
+    useEffect(() => { }, [moviesData]);
 
     return (
         <div className={DashboardStyle.container}>
@@ -35,7 +33,7 @@ const Dashboard = () => {
                 <div className={DashboardStyle.cardChild}>
                     <div>
                         <h1>Starships</h1>
-                        <p>82</p>
+                        <p>36</p>
                     </div>
                     <img src={starship} />
                 </div>
@@ -43,7 +41,7 @@ const Dashboard = () => {
                 <div className={DashboardStyle.cardChild}>
                     <div>
                         <h1>Planets</h1>
-                        <p>82</p>
+                        <p>60</p>
                     </div>
                     <img src={planet} />
                 </div>
@@ -54,18 +52,15 @@ const Dashboard = () => {
                     {moviesStatus === "loading" ? (
                         <p>Cargando...</p>
                     ) : (
-                        <div>
-                            <ul>
-                                {moviesData?.results.map((movie) => (
-                                    <li key={movie.title}>
-                                        <h1>{movie.title}</h1>
-                                        <p >Director: {movie.director}</p>
-                                        <p>Episodios: {movie.episode_id}</p>
-                                        <p>Fecha de lanzamiento: {movie.release_date}</p>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                        <>
+                            {moviesData?.results.map((movie) => (
+                                <div key={movie.title}>
+                                    <h1>{movie.title}</h1>
+                                    <p >{movie.director}</p>
+                                    <p>{movie.release_date}</p>
+                                </div>
+                            ))}
+                        </>
                     )}
                 </div>
 

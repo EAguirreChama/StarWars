@@ -43,6 +43,7 @@ body {
     height: 150px;
     display: flex;
     border-radius: 20px;
+    border: 3px solid black;
 }
 
 .cardChild {
@@ -70,7 +71,7 @@ body {
     flex-direction: column;
     padding: 20px;
     border-radius: 20px;
-    border: 3px solid #8A0C18;
+    border: 3px solid black;
 }
 
 .info h1 {
@@ -90,114 +91,34 @@ body {
 
 .films {
     background-color: white;
-    width: 1340px;
-    display: flex;
-    border-radius: 20px;
-    border: 3px solid #8A0C18
-}
-
-.films ul {
-    list-style: none;
-}
-
-.films li {
-    background-color: rgb(196, 191, 191);
-    border: 1px solid #ddd;
-    width: 120%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
+    display: grid;
+    flex-direction: column;
+    width: 1000px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
     border-radius: 10px;
+    border: 3px solid black;
+}
+
+.films div {
+    background-color: #ccc;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 450px;
+    border-radius: 10px;
+    border: 3px solid black;
+}
+
+.films p {
+    margin: 0;
+    color: black;
 }
 
 .films h1 {
-    color: black;
-    font-weight: bold;
-    font-size: 30px;
-}
-
-p {
-    color: black;
-}
-
-@media only screen and (max-width: 768px) {
-    .container {
-        margin-left: 10px;
-        margin-right: 10px;
-    }
-
-    .home button {
-        width: 100%;
-    }
-
-    .containerThreeT,
-    .containerTwoT {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 30px;
-    }
-
-    .containerThreeT img {
-        display: none; 
-    }
-
-    .containerThreeT>div {
-        width: 100%;
-        max-width: 400px;
-        margin-top: 20px;
-    }
-
-    .cardChild {
-        flex-direction: column;
-        align-items: center;
-        padding: 20px;
-    }
-
-    .cardChild h1 {
-        text-align: center;
-    }
-
-    .cardChild p {
-        text-align: center;
-    }
-
-    .info {
-        width: 100%;
-        max-width: 300px;
-        margin: 20px auto;
-        padding: 20px;
-        border-radius: 20px;
-        border: 3px solid #8A0C18;
-    }
-
-    .info h1 {
-        text-align: center;
-    }
-
-    .info a {
-        text-align: center;
-    }
-
-    .films {
-        width: 100%;
-        max-width: 600px;
-        margin: 20px auto;
-        border: 3px solid #8A0C18;
-        border-radius: 20px;
-        overflow: hidden;
-    }
-
-    .films ul {
-        padding: 0;
-        margin: 0;
-    }
-
-    .films li {
-        width: 100%;
-    }
-
-    .films h1,
-    p {
-        text-align: center;
-    }
+    margin: 0;
 }
