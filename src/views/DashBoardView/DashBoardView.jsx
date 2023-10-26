@@ -55,8 +55,9 @@ const Dashboard = () => {
                         <>
                             {moviesData?.results.map((movie) => (
                                 <div key={movie.title}>
+
                                     <h1>{movie.title}</h1>
-                                    <p >{movie.director}</p>
+                                    <p>Director: {movie.director}</p>
                                     <p>{movie.release_date}</p>
                                 </div>
                             ))}

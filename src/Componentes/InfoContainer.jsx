@@ -10,17 +10,6 @@ const Info = ({ info, setPage, page, next, setUrl, tab, resetSearch }) => {
     return (
         <div className={style.container}>
             <div>
-                <div className={style.CardContainer}>
-                    {info?.map((dato) =>
-                        tab === "people" ? (
-                            <Person key={dato.name} person={dato} />
-                        ) : tab === "planets" ? ( 
-                            <Planet key={dato.name} planet={dato} />
-                        ) : (
-                            <Starship key={dato.name} starship={dato} />
-                        )
-                    )}
-                </div>
                 <div className={styleP.pagination}>
                     <button
                         onClick={() => setPage((old) => Math.min(old - 1, old))}
@@ -43,6 +32,17 @@ const Info = ({ info, setPage, page, next, setUrl, tab, resetSearch }) => {
                     >
                         Reset
                     </button>
+                </div>
+                <div className={style.CardContainer}>
+                    {info?.map((dato) =>
+                        tab === "people" ? (
+                            <Person key={dato.name} person={dato} />
+                        ) : tab === "planets" ? ( 
+                            <Planet key={dato.name} planet={dato} />
+                        ) : (
+                            <Starship key={dato.name} starship={dato} />
+                        )
+                    )}
                 </div>
             </div>
         </div>
