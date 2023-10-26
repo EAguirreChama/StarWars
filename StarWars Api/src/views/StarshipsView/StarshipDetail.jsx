@@ -28,7 +28,7 @@ const StarshipDetail = () => {
 
     return (
         <div>
-            <NavBar />
+            <NavBar/>
             <div className={StarshipStyle.contenedor}>
                 <div className={StarshipStyle.card}>
                     <h1>Details of the Ship {starshipDetail.name}</h1>
