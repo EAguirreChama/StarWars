@@ -23,3 +23,13 @@
 .dashboardButton:hover {
     background-color: #0056b3;
 }
+
+@media only screen and (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    .dashboardButton {
+        width: 100%;
+    }
+}

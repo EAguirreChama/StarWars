@@ -51,7 +51,6 @@ const Dashboard = () => {
 
             <div className={DashboardStyle.containerTwoT}>
                 <div className={DashboardStyle.films}>
-                    {/* <h2>Films</h2> */}
                     {moviesStatus === "loading" ? (
                         <p>Cargando...</p>
                     ) : (

@@ -19,7 +19,7 @@
     cursor: pointer;
     text-decoration: none;
 }
-    
+
 .NavBarStyle a:hover {
     color: #03071E;
     background-color: #F48C06;
@@ -30,7 +30,6 @@
     color: #ccc;
     margin-right: 100px;
 }
-
 
 .loading {
     text-align: center;
