@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getInfoId } from "../../Info/getInfoId";
 import NavBar from "../../Componentes/NavBar";
 import LoadingStyle from "../../Styles/NavBar.module.css"
+import StarshipStyle from "../../Styles/Detail.module.css"
 
 const StarshipDetail = () => {
     const { id } = useParams()
@@ -27,11 +28,15 @@ const StarshipDetail = () => {
 
     return (
         <div>
-            <NavBar/>
-            <h1>Detalle de la Nave {starshipDetail.name}</h1>
-            <h2>Manufacturer: {starshipDetail.manufacturer}</h2>
-            <h2>Consumables: {starshipDetail.consumables}</h2>
-            <h2>Starship Class: {starshipDetail.starship_class}</h2>
+            <NavBar />
+            <div className={StarshipStyle.contenedor}>
+                <div className={StarshipStyle.card}>
+                    <h1>Details of the Ship {starshipDetail.name}</h1>
+                    <p>Manufacturer: {starshipDetail.manufacturer}</p>
+                    <p>Consumables: {starshipDetail.consumables}</p>
+                    <p>Starship Class: {starshipDetail.starship_class}</p>
+                </div>
+            </div>
         </div>
     )
 }
