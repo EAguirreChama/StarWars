@@ -23,10 +23,10 @@ const Dashboard = () => {
         <div className={DashboardStyle.container}>
             <div className={DashboardStyle.containerThreeT}>
                 <div className={DashboardStyle.cardChild}>
-                    <div >
-                        <h1>Residents</h1>
-                        <p>82</p>
-                    </div>
+                        <div >
+                            <h1>Residents</h1>
+                            <p>82</p>
+                        </div>
                     <img src={people} />
                 </div>
 
